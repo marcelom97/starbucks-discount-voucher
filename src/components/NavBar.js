@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Row, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import Img from '../assets/logo.png';
 
 export default function NavBar() {
