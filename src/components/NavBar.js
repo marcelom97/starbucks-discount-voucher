@@ -20,7 +20,7 @@ export default function NavBar() {
       </Row>
       <Row>
         <Col>
-          <Image src={Img} width={'96'} height={'96'} />
+          <Image src={Img} width={'128'} height={'128'} />
         </Col>
       </Row>
       <Row>
