@@ -4,14 +4,7 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a:link {
-  color: #046240;
-}
-
-a:hover {
-  color: black;
+  background-image: url('./assets/bg.png');
 }
 
 code {

@@ -1,7 +1,12 @@
-import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+
 import LandingPage from './pages/LandingPage';
+import Menu from './pages/Menu';
+import SignIn from './pages/SignIn';
+import JoinNow from './pages/JoinNow';
 
 import './App.css';
 
@@ -11,8 +16,17 @@ export default function App() {
       <Container>
         <NavBar />
         <Switch>
-          <Route path='/'>
+          <Route path='/' exact>
             <LandingPage />
+          </Route>
+          <Route path='/menu' exact>
+            <Menu />
+          </Route>
+          <Route path='/signin' exact>
+            <SignIn />
+          </Route>
+          <Route path='/joinnow' exact>
+            <JoinNow />
           </Route>
         </Switch>
       </Container>

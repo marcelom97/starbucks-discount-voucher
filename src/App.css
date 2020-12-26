@@ -1,4 +1,5 @@
-.link {
+.link,
+.intro-text {
   color: #046240;
   font-weight: bold;
 }
@@ -9,4 +10,16 @@
 
 .link:hover {
   color: #046240;
+}
+
+#circle {
+  position: relative;
+  background: #046240;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+}
+
+.decoration {
+  position: absolute;
 }
