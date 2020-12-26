@@ -13,24 +13,24 @@ export default function NavBar() {
           </Link>
         </Col>
         <Col>
-          <Link to='/' className='link'>
+          <Link to='/menu' className='link'>
             Menu
           </Link>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Image src={Img} width={'96'} height={'96'} roundedCircle />
+          <Image src={Img} width={'96'} height={'96'} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <Link to='/' className='link'>
+          <Link to='/signin' className='link'>
             Sign In
           </Link>
         </Col>
         <Col>
-          <Link to='/' className='link'>
+          <Link to='/joinnow' className='link'>
             Join_Now
           </Link>
         </Col>
