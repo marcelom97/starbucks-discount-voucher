@@ -10,12 +10,12 @@ export default function NavBar() {
       <Row>
         <Col>
           <Link to='/' className='link'>
-            Home
+            <h4>Home</h4>
           </Link>
         </Col>
         <Col>
           <Link to='/menu' className='link'>
-            Menu
+            <h4>Menu</h4>
           </Link>
         </Col>
       </Row>
@@ -29,12 +29,12 @@ export default function NavBar() {
       <Row>
         <Col>
           <Link to='/signin' className='link'>
-            Sign In
+            <h4>Sign In</h4>
           </Link>
         </Col>
         <Col>
           <Link to='/joinnow' className='link'>
-            Join_Now
+            <h4>Join_Now</h4>
           </Link>
         </Col>
       </Row>

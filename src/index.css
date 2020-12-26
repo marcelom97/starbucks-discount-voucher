@@ -6,7 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./assets/bg.png');
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  background-attachment: fixed;
 }
 
 code {
