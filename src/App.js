@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { ProvideAuth } from './hooks/use-auth';
+// import { ProvideAuth } from './hooks/use-auth';
 
 import NavBar from './components/NavBar';
 
@@ -13,26 +13,26 @@ import './App.css';
 
 export default function App() {
   return (
-    <ProvideAuth>
-      <Router>
-        <Container>
-          <NavBar />
-          <Switch>
-            <Route path='/' exact>
-              <LandingPage />
-            </Route>
-            <Route path='/menu' exact>
-              <Menu />
-            </Route>
-            <Route path='/signin' exact>
-              <SignIn />
-            </Route>
-            <Route path='/joinnow' exact>
-              <JoinNow />
-            </Route>
-          </Switch>
-        </Container>
-      </Router>
-    </ProvideAuth>
+    // <ProvideAuth>
+    <Router>
+      <Container>
+        <NavBar />
+        <Switch>
+          <Route path='/' exact>
+            <LandingPage />
+          </Route>
+          <Route path='/menu' exact>
+            <Menu />
+          </Route>
+          <Route path='/signin' exact>
+            <SignIn />
+          </Route>
+          <Route path='/joinnow' exact>
+            <JoinNow />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
+    // </ProvideAuth>
   );
 }
