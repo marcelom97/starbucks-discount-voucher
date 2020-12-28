@@ -1,7 +1,15 @@
 import React from 'react';
 import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 export default function JoinNow() {
+  const history = useHistory();
+
+  function handleJoinNow(e) {
+    e.preventDefault();
+    history.push('/home');
+  }
+
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
@@ -12,6 +20,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Last Name</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'text'}
@@ -27,6 +36,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>First Name</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'text'}
@@ -42,6 +52,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Email</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'email'}
@@ -57,6 +68,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Username</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'text'}
@@ -72,6 +84,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Password</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'password'}
@@ -87,6 +100,7 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Repeat Password</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'password'}
@@ -102,13 +116,22 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6 d-flex flex-row-reverse'>
-            <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
+            <Button
+              variant='primary'
+              size='lg'
+              style={{ backgroundColor: '#046240', border: 'none' }}
+              onClick={(e) => handleJoinNow(e)}
+            >
               Sign Up
             </Button>
           </Col>
           <Col />
         </Row>
       </Col>
+      <br />
+      <br />
+      <br />
+      <br />
     </Col>
   );
 }

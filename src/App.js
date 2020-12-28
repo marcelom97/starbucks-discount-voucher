@@ -8,6 +8,8 @@ import LandingPage from './pages/LandingPage';
 import Menu from './pages/Menu';
 import SignIn from './pages/SignIn';
 import JoinNow from './pages/JoinNow';
+import Home from './pages/Home';
+import Apply from './pages/Apply';
 
 import './App.css';
 
@@ -29,6 +31,12 @@ export default function App() {
           </Route>
           <Route path='/joinnow' exact>
             <JoinNow />
+          </Route>
+          <Route path='/home' exact>
+            <Home />
+          </Route>
+          <Route path='/apply' exact>
+            <Apply />
           </Route>
         </Switch>
       </Container>

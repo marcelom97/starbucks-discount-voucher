@@ -1,7 +1,14 @@
 import React from 'react';
 import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 export default function SignIn() {
+  const history = useHistory();
+
+  function handleSignIn(e) {
+    e.preventDefault();
+    history.push('/home');
+  }
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
@@ -12,6 +19,7 @@ export default function SignIn() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Username</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'text'}
@@ -27,6 +35,7 @@ export default function SignIn() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Password</label>
             <InputGroup size='lg'>
               <FormControl
                 type={'password'}
@@ -42,7 +51,12 @@ export default function SignIn() {
         <Row>
           <Col />
           <Col className='col-6 d-flex flex-row-reverse'>
-            <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
+            <Button
+              variant='primary'
+              size='lg'
+              style={{ backgroundColor: '#046240', border: 'none' }}
+              onClick={(e) => handleSignIn(e)}
+            >
               Sign In
             </Button>
           </Col>
