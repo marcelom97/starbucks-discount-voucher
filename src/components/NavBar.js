@@ -6,11 +6,6 @@ import Img from '../assets/logo.png';
 
 export default function NavBar() {
   const location = useLocation();
-
-  React.useEffect(() => {
-    console.log(location.pathname);
-  });
-
   return (
     <Nav className='justify-content-around align-items-center link'>
       <Row>
