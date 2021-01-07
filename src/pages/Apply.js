@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, InputGroup, FormControl, Button, FormLabel } from 'react-bootstrap';
+import { Col, Row, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 export default function Apply() {
   return (
@@ -98,7 +98,7 @@ export default function Apply() {
           <Col />
           <Col className='col-6 d-flex flex-row-reverse'>
             <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
-              Sign Up
+              Apply
             </Button>
           </Col>
           <Col />

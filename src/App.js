@@ -1,6 +1,5 @@
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { ProvideAuth } from './hooks/use-auth';
 
 import NavBar from './components/NavBar';
 
@@ -10,12 +9,12 @@ import SignIn from './pages/SignIn';
 import JoinNow from './pages/JoinNow';
 import Home from './pages/Home';
 import Apply from './pages/Apply';
+import PageNotFound from './pages/PageNotFound';
 
 import './App.css';
 
 export default function App() {
   return (
-    // <ProvideAuth>
     <Router>
       <Container>
         <NavBar />
@@ -38,9 +37,11 @@ export default function App() {
           <Route path='/apply' exact>
             <Apply />
           </Route>
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
       </Container>
     </Router>
-    // </ProvideAuth>
   );
 }
