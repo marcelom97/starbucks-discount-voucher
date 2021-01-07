@@ -38,9 +38,14 @@ export default function Apply() {
         <Row>
           <Col />
           <Col className='col-6'>
-            <label>Date of birth</label>
+            <label>Identity Card Number</label>
             <InputGroup size='lg'>
-              <FormControl type={'date'} aria-label='Large' aria-describedby='inputGroup-sizing-sm' />
+              <FormControl
+                type={'text'}
+                aria-label='Large'
+                aria-describedby='inputGroup-sizing-sm'
+                placeholder={'Identity Card Number'}
+              />
             </InputGroup>
           </Col>
           <Col />
@@ -63,7 +68,6 @@ export default function Apply() {
               </Col>
               <Col>
                 <label>AMKA</label>
-
                 <InputGroup size='lg'>
                   <FormControl
                     type={'number'}

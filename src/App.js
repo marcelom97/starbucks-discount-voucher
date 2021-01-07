@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 
 import LandingPage from './pages/LandingPage';
-import Menu from './pages/Menu';
 import SignIn from './pages/SignIn';
 import JoinNow from './pages/JoinNow';
 import Home from './pages/Home';

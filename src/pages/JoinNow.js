@@ -84,6 +84,17 @@ export default function JoinNow() {
         <Row>
           <Col />
           <Col className='col-6'>
+            <label>Date of birth</label>
+            <InputGroup size='lg'>
+              <FormControl type={'date'} aria-label='Large' aria-describedby='inputGroup-sizing-sm' />
+            </InputGroup>
+          </Col>
+          <Col />
+        </Row>
+        <br />
+        <Row>
+          <Col />
+          <Col className='col-6'>
             <label>Password</label>
             <InputGroup size='lg'>
               <FormControl
