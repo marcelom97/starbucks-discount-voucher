@@ -12,6 +12,7 @@ import Apply from './pages/Apply';
 import PageNotFound from './pages/PageNotFound';
 import SuccessApplication from './pages/SuccessApplication';
 import FailedApplication from './pages/FailedApplication';
+import AdminPanel from './pages/AdminPanel';
 
 import './App.css';
 
@@ -44,6 +45,9 @@ export default function App() {
           </Route>
           <Route path='/failedaplication' exact>
             <FailedApplication />
+          </Route>
+          <Route path='/adminpanel' exact>
+            <AdminPanel />
           </Route>
           <Route>
             <PageNotFound />
