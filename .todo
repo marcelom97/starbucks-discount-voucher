@@ -1,2 +1,35 @@
 // TODO add menu items
 // implement admin panel
+// validate apply page birthdate to be higher than 31/12/1984
+// delete menu
+// voucher form
+Spesific time
+ - AFK
+ - AMKA
+ - OAED
+ - ADT
+ validation:
+  - existing application
+    message: 
+    - existing application and exit application page
+  - OAED and age
+  success:
+    message:
+    - success message for the application with all the user data
+  failure:
+    message:
+    - message that the validation went wrong (δεν ικανοποιούνται τα κριτήρια)
+1) admin panel just needs to activate the algorithm and the results are generated automaticaly
+2) after algorithm is completed we need a table with dec by points and all the applications
+table:
+  - AMKA
+  - POINTS
+  - is public on the app
+
+3) Deliver tha voucher
+activate voucher form:
+  - voucher id
+  success:
+    - returns voucher on pdf
+  failure:
+    - error message

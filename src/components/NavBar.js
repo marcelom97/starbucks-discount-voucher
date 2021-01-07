@@ -16,7 +16,9 @@ export default function NavBar() {
         </Col>
         <Col>
           <Link to='/menu' className='link'>
-            <h4>Menu</h4>
+            <div>
+              <h4>Activate Voucher</h4>
+            </div>
           </Link>
         </Col>
       </Row>

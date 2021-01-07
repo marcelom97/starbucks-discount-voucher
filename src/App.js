@@ -40,10 +40,10 @@ export default function App() {
           <Route path='/apply' exact>
             <Apply />
           </Route>
-          <Route path='/successaplication' exact>
+          <Route path='/successapplication' exact>
             <SuccessApplication />
           </Route>
-          <Route path='/failedaplication' exact>
+          <Route path='/failedapplication' exact>
             <FailedApplication />
           </Route>
           <Route path='/adminpanel' exact>

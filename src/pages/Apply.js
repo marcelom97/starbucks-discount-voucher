@@ -114,6 +114,10 @@ export default function Apply() {
           <Col />
         </Row>
       </Col>
+      <br />
+      <br />
+      <br />
+      <br />
     </Col>
   );
 }
