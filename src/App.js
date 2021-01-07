@@ -10,6 +10,7 @@ import JoinNow from './pages/JoinNow';
 import Home from './pages/Home';
 import Apply from './pages/Apply';
 import PageNotFound from './pages/PageNotFound';
+import SuccessApplication from './pages/SuccessApplication';
 
 import './App.css';
 
@@ -36,6 +37,9 @@ export default function App() {
           </Route>
           <Route path='/apply' exact>
             <Apply />
+          </Route>
+          <Route path='/successaplication' exact>
+            <SuccessApplication />
           </Route>
           <Route>
             <PageNotFound />
