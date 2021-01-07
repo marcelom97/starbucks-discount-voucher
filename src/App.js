@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Apply from './pages/Apply';
 import PageNotFound from './pages/PageNotFound';
 import SuccessApplication from './pages/SuccessApplication';
+import FailedApplication from './pages/FailedApplication';
 
 import './App.css';
 
@@ -40,6 +41,9 @@ export default function App() {
           </Route>
           <Route path='/successaplication' exact>
             <SuccessApplication />
+          </Route>
+          <Route path='/failedaplication' exact>
+            <FailedApplication />
           </Route>
           <Route>
             <PageNotFound />
