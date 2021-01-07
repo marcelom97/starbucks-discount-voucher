@@ -5,7 +5,17 @@ export default function Apply() {
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
-        <h1 className={'intro-text font-weight-bold pt-5'}>Unemployment Discount Application</h1>
+        <div>
+          <div className={'d-flex justify-content-center'}>
+            <h1 className={'intro-text font-weight-bold pt-5'}>Unemployment Discount Application</h1>
+          </div>
+          <p>
+            Υποψήφιοι δικαιούχοι ενός κουπονιού είναι άτομα που έχουν γεννηθεί μετά την 31η /12/1984 (κριτήριο ηλικίας)
+            και έχουν ενεργή εγγραφή στο μητρώο πελατών της εταιρείας κατά την υποβολή της αίτησης. Κάθε κουπόνι
+            αντιστοιχεί σε μία οικονομική αξία και ο δικαιούχος της μπορεί να την εξαργυρώσει σε καταστήματα της
+            εταιρείας ανά τον κόσμο.
+          </p>
+        </div>
       </Col>
       <br />
       <Col>
