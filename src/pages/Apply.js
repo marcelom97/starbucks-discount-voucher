@@ -22,15 +22,56 @@ export default function Apply() {
         <Row>
           <Col />
           <Col className='col-6'>
-            <label>Father's Name</label>
-            <InputGroup size='lg'>
-              <FormControl
-                type={'text'}
-                aria-label='Large'
-                aria-describedby='inputGroup-sizing-sm'
-                placeholder={"Father's Name"}
-              />
-            </InputGroup>
+            <Row>
+              <Col>
+                <label>First Name</label>
+                <InputGroup size='lg'>
+                  <FormControl
+                    type={'text'}
+                    aria-label='Large'
+                    aria-describedby='inputGroup-sizing-sm'
+                    placeholder={'First Name'}
+                  />
+                </InputGroup>
+              </Col>
+              <Col>
+                <label>Last Name</label>
+                <InputGroup size='lg'>
+                  <FormControl
+                    type={'text'}
+                    aria-label='Large'
+                    aria-describedby='inputGroup-sizing-sm'
+                    placeholder={'Last Name'}
+                  />
+                </InputGroup>
+              </Col>
+            </Row>
+          </Col>
+          <Col />
+        </Row>
+        <br />
+        <Row>
+          <Col />
+          <Col className='col-6'>
+            <Row>
+              <Col>
+                <label>Father's Name</label>
+                <InputGroup size='lg'>
+                  <FormControl
+                    type={'text'}
+                    aria-label='Large'
+                    aria-describedby='inputGroup-sizing-sm'
+                    placeholder={"Father's Name"}
+                  />
+                </InputGroup>
+              </Col>
+              <Col>
+                <label>Birth Date</label>
+                <InputGroup size='lg'>
+                  <FormControl type={'date'} aria-label='Large' aria-describedby='inputGroup-sizing-sm' />
+                </InputGroup>
+              </Col>
+            </Row>
           </Col>
           <Col />
         </Row>
@@ -118,6 +159,8 @@ export default function Apply() {
           <Col />
         </Row>
       </Col>
+      <br />
+      <br />
       <br />
       <br />
       <br />
