@@ -1,13 +1,12 @@
 import React from 'react';
 import { Nav, Row, Col, Image } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Img from '../assets/logo.png';
 
 export default function NavBar() {
-  const location = useLocation();
   return (
-    <Nav className='justify-content-around align-items-center link'>
+    <Nav className='container justify-content-around align-items-center link'>
       <Row>
         <Col>
           <Link to='/' className='link'>
@@ -16,9 +15,7 @@ export default function NavBar() {
         </Col>
         <Col>
           <Link to='/activatevoucher' className='link'>
-            <div>
-              <h4>Activate Voucher</h4>
-            </div>
+            <h4>Voucher</h4>
           </Link>
         </Col>
       </Row>

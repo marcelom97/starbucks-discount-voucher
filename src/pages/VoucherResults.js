@@ -1,12 +1,33 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+import { Col, Table } from 'react-bootstrap';
 
 export default function VoucherResults() {
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
         <div>
-          <h1 className={'intro-text font-weight-bold pt-5'}>Results table placeholder</h1>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>AMKA</th>
+                <th>POINTS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>placeholder</td>
+                <td>placeholder</td>
+              </tr>
+              <tr>
+                <td>placeholder</td>
+                <td>placeholder</td>
+              </tr>
+              <tr>
+                <td>placeholder</td>
+                <td>placeholder</td>
+              </tr>
+            </tbody>
+          </Table>
         </div>
       </Col>
     </Col>
