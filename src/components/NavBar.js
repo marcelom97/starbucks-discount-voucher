@@ -31,26 +31,14 @@ export default function NavBar() {
       </Row>
       <Row>
         <Col>
-          {location.pathname === '/home' ? (
-            <Link to='/signout' className='link'>
-              <h4>Sign Out</h4>
-            </Link>
-          ) : (
-            <Link to='/signin' className='link'>
-              <h4>Sign In</h4>
-            </Link>
-          )}
+          <Link to='/voucherresults' className='link'>
+            <h4>Results</h4>
+          </Link>
         </Col>
         <Col>
-          {location.pathname === '/home' ? (
-            <Link to='/apply' className='link'>
-              <h4>Apply</h4>
-            </Link>
-          ) : (
-            <Link to='/joinnow' className='link'>
-              <h4>Join_Now</h4>
-            </Link>
-          )}
+          <Link to='/apply' className='link'>
+            <h4>Apply</h4>
+          </Link>
         </Col>
       </Row>
     </Nav>

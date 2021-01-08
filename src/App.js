@@ -13,6 +13,7 @@ import SuccessApplication from './pages/SuccessApplication';
 import FailedApplication from './pages/FailedApplication';
 import AdminPanel from './pages/AdminPanel';
 import ActivateVoucher from './pages/ActivateVoucher';
+import VoucherResults from './pages/VoucherResults';
 
 import './App.css';
 
@@ -48,6 +49,9 @@ export default function App() {
           </Route>
           <Route path='/activatevoucher' exact>
             <ActivateVoucher />
+          </Route>
+          <Route path='/voucherresults' exact>
+            <VoucherResults />
           </Route>
           <Route>
             <PageNotFound />
