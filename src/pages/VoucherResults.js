@@ -5,7 +5,7 @@ export default function VoucherResults() {
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
-        <div>
+        <Col className={'col-8'}>
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -28,7 +28,7 @@ export default function VoucherResults() {
               </tr>
             </tbody>
           </Table>
-        </div>
+        </Col>
       </Col>
     </Col>
   );

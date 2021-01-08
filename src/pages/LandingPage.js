@@ -1,10 +1,13 @@
 import React from 'react';
 import { Row, Image, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import Mocha from '../assets/mocha.png';
 import Machiatto from '../assets/machiatto.png';
 
 export default function LandingPage() {
+  const history = useHistory();
+
   return (
     <>
       <Row className={'d-flex justify-content-center'}>
@@ -30,8 +33,13 @@ export default function LandingPage() {
           </h1>
           <br />
           <div className='d-flex flex-row-reverse'>
-            <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
-              Join Now
+            <Button
+              variant='primary'
+              size='lg'
+              style={{ backgroundColor: '#046240', border: 'none' }}
+              onClick={() => history.push('/apply')}
+            >
+              Apply Now
             </Button>
           </div>
         </div>
