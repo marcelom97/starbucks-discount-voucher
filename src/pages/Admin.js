@@ -2,12 +2,30 @@ import React from 'react';
 import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
+import axios from '../utils/axios';
+
 export default function Admin() {
   const history = useHistory();
 
-  function handleSignIn(e) {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  async function handleSignIn(e) {
     e.preventDefault();
-    history.push('/home');
+    try {
+      const response = await axios.post('/api/v1/auth/login', {
+        email,
+        password,
+      });
+      const data = response.data;
+      console.log(data);
+      if (response.status === 200) {
+        history.push('/adminpanel');
+      }
+    } catch (error) {
+      console.error(error.response);
+    }
+    // history.push('/adminpanel');
   }
   return (
     <Col>
@@ -19,13 +37,14 @@ export default function Admin() {
         <Row>
           <Col />
           <Col className='col-6'>
-            <label>Username</label>
+            <label>Email</label>
             <InputGroup size='lg'>
               <FormControl
-                type={'text'}
+                type={'email'}
                 aria-label='Large'
                 aria-describedby='inputGroup-sizing-sm'
-                placeholder={'Username'}
+                placeholder={'Email'}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </InputGroup>
           </Col>
@@ -42,6 +61,7 @@ export default function Admin() {
                 aria-label='Large'
                 aria-describedby='inputGroup-sizing-sm'
                 placeholder={'Password'}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </InputGroup>
           </Col>
