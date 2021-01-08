@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-export default function SignIn() {
+export default function Admin() {
   const history = useHistory();
 
   function handleSignIn(e) {
@@ -12,7 +12,7 @@ export default function SignIn() {
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
-        <h1 className={'intro-text font-weight-bold pt-5'}>Sign in to enjoy a new experience</h1>
+        <h1 className={'intro-text font-weight-bold pt-5'}>Sign in to Admin Panel</h1>
       </Col>
       <br />
       <Col>
