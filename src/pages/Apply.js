@@ -1,7 +1,44 @@
-import React from 'react';
-import { Col, Row, InputGroup, FormControl, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Row, InputGroup, Button, Form } from 'react-bootstrap';
 
 export default function Apply() {
+  const [firstname, setFirstname] = useState(null);
+  const [lastname, setLastname] = useState(null);
+  const [fathersname, setFathersname] = useState(null);
+  const [birthdate, setBirthdate] = useState(null);
+  const [adt, setAdt] = useState(null);
+  const [afm, setAfm] = useState(null);
+  const [amka, setAmka] = useState(null);
+  const [unemploymentNumber, setUnemploymentNumber] = useState(null);
+  const [unemploymentDuaDate, setUnemploymentDuaDate] = useState(null);
+
+  const [validated, setValidated] = useState(false);
+
+  async function handleSubmit(event) {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+
+    if (birthdate > '1984-12-31') {
+      console.log({
+        firstname,
+        lastname,
+        birthdate,
+        adt,
+        fathersname,
+        afm,
+        amka,
+        unemploymentNumber,
+        unemploymentDuaDate,
+      });
+    } else {
+    }
+  }
+
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
@@ -18,30 +55,34 @@ export default function Apply() {
         </div>
       </Col>
       <br />
-      <Col>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row>
           <Col />
           <Col className='col-6'>
             <Row>
               <Col>
-                <label>First Name</label>
+                <Form.Label>First Name</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'text'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={'First Name'}
+                    onChange={(e) => setFirstname(e.target.value)}
                   />
                 </InputGroup>
               </Col>
               <Col>
-                <label>Last Name</label>
+                <Form.Label>Last Name</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'text'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={'Last Name'}
+                    onChange={(e) => setLastname(e.target.value)}
                   />
                 </InputGroup>
               </Col>
@@ -55,20 +96,28 @@ export default function Apply() {
           <Col className='col-6'>
             <Row>
               <Col>
-                <label>Father's Name</label>
+                <Form.Label>Father's Name</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'text'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={"Father's Name"}
+                    onChange={(e) => setFathersname(e.target.value)}
                   />
                 </InputGroup>
               </Col>
               <Col>
-                <label>Birth Date</label>
+                <Form.Label>Birth Date</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl type={'date'} aria-label='Large' aria-describedby='inputGroup-sizing-sm' />
+                  <Form.Control
+                    required
+                    type={'date'}
+                    aria-label='Large'
+                    aria-describedby='inputGroup-sizing-sm'
+                    onChange={(e) => setBirthdate(e.target.value)}
+                  />
                 </InputGroup>
               </Col>
             </Row>
@@ -79,13 +128,15 @@ export default function Apply() {
         <Row>
           <Col />
           <Col className='col-6'>
-            <label>Identity Card Number</label>
+            <Form.Label>Identity Card Number</Form.Label>
             <InputGroup size='lg'>
-              <FormControl
+              <Form.Control
+                required
                 type={'text'}
                 aria-label='Large'
                 aria-describedby='inputGroup-sizing-sm'
                 placeholder={'Identity Card Number'}
+                onChange={(e) => setAdt(e.target.value)}
               />
             </InputGroup>
           </Col>
@@ -97,24 +148,28 @@ export default function Apply() {
           <Col className='col-6'>
             <Row>
               <Col>
-                <label>AFM</label>
+                <Form.Label>AFM</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'number'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={'AFM'}
+                    onChange={(e) => setAfm(e.target.value)}
                   />
                 </InputGroup>
               </Col>
               <Col>
-                <label>AMKA</label>
+                <Form.Label>AMKA</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'number'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={'AMKA'}
+                    onChange={(e) => setAmka(e.target.value)}
                   />
                 </InputGroup>
               </Col>
@@ -128,20 +183,28 @@ export default function Apply() {
           <Col className='col-6'>
             <Row>
               <Col>
-                <label>Unemployment Number</label>
+                <Form.Label>Unemployment Number</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl
+                  <Form.Control
+                    required
                     type={'text'}
                     aria-label='Large'
                     aria-describedby='inputGroup-sizing-sm'
                     placeholder={'Unemployment Number'}
+                    onChange={(e) => setUnemploymentNumber(e.target.value)}
                   />
                 </InputGroup>
               </Col>
               <Col>
-                <label>Due Date</label>
+                <Form.Label>Due Date</Form.Label>
                 <InputGroup size='lg'>
-                  <FormControl type={'date'} aria-label='Large' aria-describedby='inputGroup-sizing-sm' />
+                  <Form.Control
+                    required
+                    type={'date'}
+                    aria-label='Large'
+                    aria-describedby='inputGroup-sizing-sm'
+                    onChange={(e) => setUnemploymentDuaDate(e.target.value)}
+                  />
                 </InputGroup>
               </Col>
             </Row>
@@ -152,13 +215,13 @@ export default function Apply() {
         <Row>
           <Col />
           <Col className='col-6 d-flex flex-row-reverse'>
-            <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
+            <Button variant='primary' size='lg' type='submit' style={{ backgroundColor: '#046240', border: 'none' }}>
               Apply
             </Button>
           </Col>
           <Col />
         </Row>
-      </Col>
+      </Form>
       <br />
       <br />
       <br />
