@@ -20,7 +20,7 @@ export default function VoucherResults() {
 
   React.useEffect(() => {
     fetchResults();
-  });
+  }, []);
 
   return (
     <Col>
