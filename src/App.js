@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 
 import LandingPage from './pages/LandingPage';
 import Admin from './pages/Admin';
+import AdminPanel from './pages/AdminPanel';
 import Apply from './pages/Apply';
 import PageNotFound from './pages/PageNotFound';
 import ActivateVoucher from './pages/ActivateVoucher';
@@ -23,6 +24,9 @@ export default function App() {
           </Route>
           <Route path='/admin' exact>
             <Admin />
+          </Route>
+          <Route path='/adminpanel' exact>
+            <AdminPanel />
           </Route>
           <Route path='/apply' exact>
             <Apply />
