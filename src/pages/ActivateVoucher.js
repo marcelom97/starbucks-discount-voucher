@@ -1,20 +1,33 @@
-import React from 'react';
-import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row, Col, InputGroup, Button, Form } from 'react-bootstrap';
 
 export default function ActivateVoucher() {
+  const [validated, setValidated] = useState(false);
+
+  async function handleSubmit(event) {
+    const form = event.currentTarget;
+    event.preventDefault();
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  }
+
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
         <h1 className={'intro-text font-weight-bold pt-5'}>Enter your Voucher ID to activate your voucher.</h1>
       </Col>
       <br />
-      <Col>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row>
           <Col />
           <Col className='col-6'>
             <label>Voucher ID</label>
             <InputGroup size='lg'>
-              <FormControl
+              <Form.Control
+                required
                 type={'text'}
                 aria-label='Large'
                 aria-describedby='inputGroup-sizing-sm'
@@ -28,13 +41,13 @@ export default function ActivateVoucher() {
         <Row>
           <Col />
           <Col className='col-6 d-flex flex-row-reverse'>
-            <Button variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
+            <Button type='submit' variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
               Activate
             </Button>
           </Col>
           <Col />
         </Row>
-      </Col>
+      </Form>
     </Col>
   );
 }
