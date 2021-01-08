@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Col, Row, InputGroup, Button, Form } from 'react-bootstrap';
 
+// import axios from '../utils/axios';
+
 export default function Apply() {
   const [firstname, setFirstname] = useState(null);
   const [lastname, setLastname] = useState(null);
@@ -17,11 +19,10 @@ export default function Apply() {
   async function handleSubmit(event) {
     const form = event.currentTarget;
     event.preventDefault();
+
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-
-    setValidated(true);
 
     if (birthdate > '1984-12-31') {
       console.log({
@@ -36,7 +37,10 @@ export default function Apply() {
         unemploymentDuaDate,
       });
     } else {
+      alert('Your age must be at least 1985-01-01');
     }
+
+    setValidated(true);
   }
 
   return (
