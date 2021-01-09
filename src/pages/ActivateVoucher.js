@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Row, Col, InputGroup, Button, Form } from 'react-bootstrap';
 
 export default function ActivateVoucher() {
-  const [validated, setValidated] = useState(false);
+  const [voucherId, setVoucherId] = React.useState('');
+  const [validated, setValidated] = React.useState(false);
 
   async function handleSubmit(event) {
     const form = event.currentTarget;
@@ -10,6 +11,8 @@ export default function ActivateVoucher() {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
+
+    console.log(voucherId);
 
     setValidated(true);
   }
@@ -32,6 +35,7 @@ export default function ActivateVoucher() {
                 aria-label='Large'
                 aria-describedby='inputGroup-sizing-sm'
                 placeholder={'Voucher ID'}
+                onChange={(e) => setVoucherId(e.target.value)}
               />
             </InputGroup>
           </Col>
