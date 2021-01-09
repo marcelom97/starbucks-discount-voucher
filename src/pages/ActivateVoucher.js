@@ -1,6 +1,8 @@
 import React from 'react';
 import { Row, Col, InputGroup, Button, Form } from 'react-bootstrap';
 
+import axios from '../utils/axios';
+
 export default function ActivateVoucher() {
   const [voucherId, setVoucherId] = React.useState('');
   const [validated, setValidated] = React.useState(false);
@@ -12,7 +14,16 @@ export default function ActivateVoucher() {
       event.stopPropagation();
     }
 
-    console.log(voucherId);
+    try {
+      const response = await axios.post(`/api/v1/voucher/${voucherId}`);
+      const data = await response.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error.response);
+      if (error.response.status === 404) {
+        alert(error.response.data.message);
+      }
+    }
 
     setValidated(true);
   }
