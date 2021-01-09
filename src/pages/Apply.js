@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row, InputGroup, Button, Form } from 'react-bootstrap';
 
-// import axios from '../utils/axios';
+import axios from '../utils/axios';
 
 export default function Apply() {
   const [firstname, setFirstname] = useState(null);
@@ -25,19 +25,27 @@ export default function Apply() {
     }
 
     if (birthdate > '1984-12-31') {
-      console.log({
-        firstname,
-        lastname,
-        birthdate,
-        adt,
-        fathersname,
-        afm,
-        amka,
-        unemploymentNumber,
-        unemploymentDuaDate,
-      });
+      try {
+        const response = await axios.post('/api/v1/unemployed', {
+          firstname,
+          lastname,
+          birthdate,
+          adt,
+          fathersname,
+          afm,
+          amka,
+          unemploymentNumber,
+          unemploymentDuaDate,
+        });
+        if (response.status === 201) {
+          alert('Your application was created successfully'); // TODO: make this alert a modal
+        }
+      } catch (error) {
+        console.log(error.response);
+        alert('There was an error on creating your application'); // TODO: make this alert a modal
+      }
     } else {
-      alert('Your age must be at least 1985-01-01');
+      alert('Your age must be at least 1985-01-01'); // TODO: make this alert a modal
     }
 
     setValidated(true);
