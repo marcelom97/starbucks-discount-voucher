@@ -19,8 +19,8 @@ export default function Apply() {
   async function handleSubmit(event) {
     const form = event.currentTarget;
 
+    event.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
       console.log('Validation');
     }
