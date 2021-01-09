@@ -17,6 +17,7 @@ export default function ActivateVoucher() {
     try {
       const response = await axios.post(`/api/v1/voucher/${voucherId}`);
       const data = await response.data;
+      console.log(data.path);
       await window.open(data.path);
     } catch (error) {
       console.log(error.response);
