@@ -18,12 +18,13 @@ export default function Apply() {
 
   async function handleSubmit(event) {
     const form = event.currentTarget;
-    event.preventDefault();
 
     if (form.checkValidity() === false) {
+      event.preventDefault();
       event.stopPropagation();
+      console.log('Validation');
     }
-
+    // TODO: validate the form not to be submited if there are empty fields
     if (birthdate > '1984-12-31') {
       try {
         const response = await axios.post('/api/v1/unemployed', {
