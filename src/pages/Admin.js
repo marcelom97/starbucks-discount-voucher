@@ -1,10 +1,13 @@
 import React from 'react';
 import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { AuthContext } from '../context';
 
 import axios from '../utils/axios';
 
 export default function Admin() {
+  const authContext = React.useContext(AuthContext);
+
   const history = useHistory();
 
   const [email, setEmail] = React.useState('');
@@ -18,15 +21,22 @@ export default function Admin() {
         password,
       });
       const data = response.data;
-      console.log(data);
+      authContext.setLoggedIn(true);
+      authContext.setToken(data.token);
+      authContext.setRefreshToken(data.refreshToken);
       if (response.status === 200) {
         history.push('/adminpanel');
       }
     } catch (error) {
       console.error(error.response);
     }
-    // history.push('/adminpanel');
   }
+
+  React.useEffect(() => {
+    console.log(authContext);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <Col>
       <Col className={'d-flex justify-content-center'}>
