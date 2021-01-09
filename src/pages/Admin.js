@@ -28,6 +28,7 @@ export default function Admin() {
         history.push('/adminpanel');
       }
     } catch (error) {
+      // TODO: handle unauthorized status
       console.error(error.response);
     }
   }

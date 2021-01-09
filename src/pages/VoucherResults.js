@@ -28,7 +28,7 @@ export default function VoucherResults() {
         <Col className={'col-8'}>
           {!loading ? (
             <>
-              {results[0].status !== 'pending' ? (
+              {results[0].status !== 'pending' && results.length > 0 ? (
                 <Table striped bordered hover>
                   <thead>
                     <tr>
