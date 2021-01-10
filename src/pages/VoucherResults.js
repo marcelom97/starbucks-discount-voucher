@@ -9,9 +9,9 @@ export default function VoucherResults() {
 
   async function fetchResults() {
     try {
-      const response = await axios.get('/api/v1/unemployed');
+      const response = await axios.get('/api/v1/unemployed?sort=-points');
       const data = await response.data;
-      setResults(data.unemployeds);
+      setResults(data.data);
       setLoading(false);
     } catch (error) {
       console.error(error.response);
