@@ -1,11 +1,23 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
+import { Col, Button, Row } from 'react-bootstrap';
 import { AuthContext } from '../context';
 import { useHistory } from 'react-router-dom';
+
+// import axios from '../utils/axios';
 
 export default function AdminPanel() {
   const authContext = React.useContext(AuthContext);
   const history = useHistory();
+
+  async function ActivateHandler(event) {
+    event.preventDefault();
+    alert('Activate');
+  }
+
+  async function RejectHandler(event) {
+    event.preventDefault();
+    alert('Reject');
+  }
 
   React.useEffect(() => {
     console.log(authContext);
@@ -16,12 +28,50 @@ export default function AdminPanel() {
   }, []);
 
   return (
-    <Col>
+    <>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Col className={'d-flex justify-content-center'}>
-        <div>
-          <h1 className={'intro-text font-weight-bold pt-5'}>Admin Panel placeholder</h1>
-        </div>
+        <Col>
+          <h4 className={'intro-text'}>
+            To Activate the Voucher Points System Calculation click the Activate button and to Reject click the Reject
+            button.
+          </h4>
+        </Col>
       </Col>
-    </Col>
+      <br />
+      <br />
+      <Col>
+        <Col>
+          <Row>
+            <Col className={'d-flex justify-content-center'}>
+              <Button
+                variant='primary'
+                size='lg'
+                style={{ backgroundColor: '#046240', border: 'none' }}
+                onClick={(e) => ActivateHandler(e)}
+              >
+                Activate
+              </Button>
+            </Col>
+            <Col className={'d-flex justify-content-center'}>
+              <Button
+                variant='primary'
+                size='lg'
+                style={{ backgroundColor: '#046240', border: 'none' }}
+                onClick={(e) => RejectHandler(e)}
+              >
+                Reject
+              </Button>
+            </Col>
+          </Row>
+        </Col>
+      </Col>
+    </>
   );
 }
