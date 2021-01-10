@@ -3,7 +3,7 @@ import { Col, Button, Row } from 'react-bootstrap';
 import { AuthContext } from '../context';
 import { useHistory } from 'react-router-dom';
 
-// import axios from '../utils/axios';
+import axios from '../utils/axios';
 
 export default function AdminPanel() {
   const authContext = React.useContext(AuthContext);
@@ -11,12 +11,34 @@ export default function AdminPanel() {
 
   async function ActivateHandler(event) {
     event.preventDefault();
-    alert('Activate');
+    try {
+      const response = await axios.post('/api/v1/voucher/activate');
+      const status = await response.status;
+      if (status === 200) {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error(error.response);
+      if (error.response.status === 404) {
+        alert(error.response.data.message);
+      }
+    }
   }
 
   async function RejectHandler(event) {
     event.preventDefault();
-    alert('Reject');
+    try {
+      const response = await axios.post('/api/v1/voucher/reject');
+      const status = await response.status;
+      if (status === 200) {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error(error.response);
+      if (error.response.status === 404) {
+        alert(error.response.data.message);
+      }
+    }
   }
 
   React.useEffect(() => {
