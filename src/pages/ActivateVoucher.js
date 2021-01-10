@@ -34,7 +34,7 @@ export default function ActivateVoucher() {
     } catch (error) {
       console.log(error.response);
       if (error.response.status === 404) {
-        setMessage(error.response.data.message);
+        setMessage('Voucher ID must not be blank.');
         handleShow();
       }
     }
