@@ -20,23 +20,28 @@ export default function ActivateVoucher() {
       event.stopPropagation();
     }
 
-    try {
-      const response = await axios.post(`/api/v1/voucher/${voucherId}`);
-      const data = await response.data;
-      if (response.status === 200) {
-        console.log(data.path);
-        await window.open(data.path);
+    if (voucherId.length >= 16) {
+      try {
+        const response = await axios.post(`/api/v1/voucher/${voucherId}`);
+        const data = await response.data;
+        if (response.status === 200) {
+          console.log(data.path);
+          await window.open(data.path);
+        }
+        if (response.status === 404) {
+          setMessage(data.message);
+          handleShow();
+        }
+      } catch (error) {
+        console.log(error.response);
+        if (error.response.status === 404) {
+          setMessage('There was an error on generating your Voucher, Please try later.');
+          handleShow();
+        }
       }
-      if (response.status === 404) {
-        setMessage(data.message);
-        handleShow();
-      }
-    } catch (error) {
-      console.log(error.response);
-      if (error.response.status === 404) {
-        setMessage('Voucher ID must not be blank.');
-        handleShow();
-      }
+    } else {
+      setMessage('Voucher ID must be at least 16 characters');
+      handleShow();
     }
 
     setValidated(true);
