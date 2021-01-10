@@ -44,14 +44,22 @@ export default function Apply() {
           unemploymentNumber,
           unemploymentDuaDate,
         });
+        console.log(response.data);
         if (response.status === 201) {
-          setMessage('Your application was created successfully');
+          setMessage(response.data.message);
           handleShow();
         }
       } catch (error) {
         console.log(error.response);
-        setMessage('There was an error on creating your application');
-        handleShow();
+        if (error.response.status === 400) {
+          console.log(typeof error.response.data.error.split(','));
+          console.log(error.response.data.error.split(','));
+          setMessage(error.response.data.error.split(','));
+          handleShow();
+        } else {
+          setMessage('There was an error on creating your application');
+          handleShow();
+        }
       }
     } else {
       setMessage('Your age must be at least 1985-01-01');
@@ -63,12 +71,18 @@ export default function Apply() {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} size={'lg'}>
         <Modal.Header closeButton>
           <Modal.Title>Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>{message}</h4>
+          <h4>
+            {typeof message === 'object'
+              ? message.map((el) => {
+                  return <p>{el}</p>;
+                })
+              : message}
+          </h4>
         </Modal.Body>
         <Modal.Footer>
           <Button variant='danger' onClick={handleClose}>
