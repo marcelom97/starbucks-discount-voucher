@@ -30,7 +30,6 @@ export default function Apply() {
       event.stopPropagation();
       console.log('Validation');
     }
-    // TODO: validate the form not to be submited if there are empty fields
     if (birthdate > '1984-12-31') {
       try {
         const response = await axios.post('/api/v1/unemployed', {
