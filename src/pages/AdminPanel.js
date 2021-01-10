@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button, Row } from 'react-bootstrap';
+import { Col, Button, Row, Modal } from 'react-bootstrap';
 import { AuthContext } from '../context';
 import { useHistory } from 'react-router-dom';
 
@@ -9,18 +9,26 @@ export default function AdminPanel() {
   const authContext = React.useContext(AuthContext);
   const history = useHistory();
 
+  const [show, setShow] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   async function ActivateHandler(event) {
     event.preventDefault();
     try {
       const response = await axios.post('/api/v1/voucher/activate');
       const status = await response.status;
       if (status === 200) {
-        alert(response.data.message);
+        setMessage(response.data.message);
+        handleShow();
       }
     } catch (error) {
       console.error(error.response);
       if (error.response.status === 404) {
-        alert(error.response.data.message);
+        setMessage(error.response.data.message);
+        handleShow();
       }
     }
   }
@@ -31,12 +39,14 @@ export default function AdminPanel() {
       const response = await axios.post('/api/v1/voucher/reject');
       const status = await response.status;
       if (status === 200) {
-        alert(response.data.message);
+        setMessage(response.data.message);
+        handleShow();
       }
     } catch (error) {
       console.error(error.response);
       if (error.response.status === 404) {
-        alert(error.response.data.message);
+        setMessage(error.response.data.message);
+        handleShow();
       }
     }
   }
@@ -51,6 +61,19 @@ export default function AdminPanel() {
 
   return (
     <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Info</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>{message}</h4>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='danger' onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <br />
       <br />
       <br />
