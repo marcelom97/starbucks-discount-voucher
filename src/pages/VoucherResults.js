@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Table, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 
 import axios from '../utils/axios';
 
@@ -23,13 +23,13 @@ export default function VoucherResults() {
   }, []);
 
   return (
-    <Col>
-      <Col className={'d-flex justify-content-center'}>
-        <Col className={'col-8'}>
+    <div>
+      <div className={'flex justify-center'}>
+        <div className={'col-8'}>
           {!loading ? (
             <>
               {results.length > 0 && results[0].status !== 'pending' ? (
-                <Table striped bordered hover>
+                <table>
                   <thead>
                     <tr>
                       <th>AMKA</th>
@@ -46,25 +46,21 @@ export default function VoucherResults() {
                       );
                     })}
                   </tbody>
-                </Table>
+                </table>
               ) : (
-                <>
-                  <br />
-                  <br />
-                  <h4 className={'intro-text'}>
-                    Results are not published yet. Be patient and try again later or contact the customer service
-                    department.
-                  </h4>
-                </>
+                <div className='font-semibold text-2xl pt-20'>
+                  Results are not published yet. Be patient and try again later or contact the customer service
+                  department.
+                </div>
               )}
             </>
           ) : (
-            <div className={'d-flex justify-content-center'}>
+            <div className={'flex justify-center'}>
               <Spinner animation='border' role='status' />
             </div>
           )}
-        </Col>
-      </Col>
-    </Col>
+        </div>
+      </div>
+    </div>
   );
 }

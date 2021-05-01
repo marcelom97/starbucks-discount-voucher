@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Image, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 import Mocha from '../assets/mocha.png';
@@ -9,42 +8,38 @@ export default function LandingPage() {
   const history = useHistory();
 
   return (
-    <>
-      <Row className={'d-flex justify-content-center'}>
-        <h1 className={'intro-text font-weight-bold pt-5'}>Starbucks Voucher Discount Application</h1>
-      </Row>
-      <Row className={'d-flex justify-content-between'}>
-        <Image src={Mocha} width={'382px'} height={'682px'} />
-        <div className={'d-flex align-items-end'}>
-          <div className={'pb-5'} style={{ width: '390px' }}>
-            <h1 className={'pb-5 intro-text'}>Enjoy your coffee the way you want it.</h1>
+    <div className='font-semibold text-3xl'>
+      <div className='flex justify-center'>
+        <div className='pt-5'>Starbucks Voucher Discount Application</div>
+      </div>
+      <div className='flex justify-between'>
+        <img src={Mocha} alt='mocha' width='382px' height='682px' />
+        <div className='flex items-end'>
+          <div>
+            <div className=''>Enjoy your coffee the way you want it.</div>
           </div>
         </div>
-      </Row>
-      <Row className={'d-flex flex-row-reverse'}>
-        <div className={'pb-5'} style={{ width: '390px' }}>
-          <h1 className={'pb-5 intro-text'}> Apply for a discount voucher and enjoy more coffee with fewer cost.</h1>
-        </div>
-      </Row>
-      <Row className={'d-flex justify-content-between'}>
-        <div style={{ width: '470px' }}>
-          <h1 className={'intro-text'}>
+      </div>
+      <div className='flex flex-row-reverse'>
+        <div className='w-2/6'> Apply for a discount voucher and enjoy more coffee with fewer cost.</div>
+      </div>
+      <div className='flex justify-between'>
+        <div>
+          <div className='w-3/6'>
             Create an account and apply with your unemployment card to redeem 20% discount on every product.
-          </h1>
-          <br />
-          <div className='d-flex flex-row-reverse'>
-            <Button
-              variant='primary'
-              size='lg'
-              style={{ backgroundColor: '#046240', border: 'none' }}
+          </div>
+          
+          <div className='flex justify-center'>
+            <button
+              className='rounded-md bg-green-700 text-white p-2 hover:bg-green-600'
               onClick={() => history.push('/apply')}
             >
               Apply Now
-            </Button>
+            </button>
           </div>
         </div>
-        <Image src={Machiatto} width={'657px'} height={'875px'} />
-      </Row>
-    </>
+        <img src={Machiatto} alt='machiatto' width='657px' height='875px' />
+      </div>
+    </div>
   );
 }

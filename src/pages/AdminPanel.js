@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col, Button, Row, Modal } from 'react-bootstrap';
 import { AuthContext } from '../context';
 import { useHistory } from 'react-router-dom';
 
@@ -61,7 +60,7 @@ export default function AdminPanel() {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Info</Modal.Title>
         </Modal.Header>
@@ -69,54 +68,33 @@ export default function AdminPanel() {
           <h4>{message}</h4>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
+          <button variant='danger' onClick={handleClose}>
             Close
-          </Button>
+          </button>
         </Modal.Footer>
-      </Modal>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Col className={'d-flex justify-content-center'}>
-        <Col>
-          <h4 className={'intro-text'}>
+      </Modal> */}
+
+      <div className={'flex justify-center'}>
+        <div>
+          <div>
             To Activate the Voucher Points System Calculation click the Activate button and to Reject click the Reject
             button.
-          </h4>
-        </Col>
-      </Col>
-      <br />
-      <br />
-      <Col>
-        <Col>
-          <Row>
-            <Col className={'d-flex justify-content-center'}>
-              <Button
-                variant='primary'
-                size='lg'
-                style={{ backgroundColor: '#046240', border: 'none' }}
-                onClick={(e) => ActivateHandler(e)}
-              >
-                Activate
-              </Button>
-            </Col>
-            <Col className={'d-flex justify-content-center'}>
-              <Button
-                variant='primary'
-                size='lg'
-                style={{ backgroundColor: '#046240', border: 'none' }}
-                onClick={(e) => RejectHandler(e)}
-              >
-                Reject
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-      </Col>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <div>
+            <div className={'flex justify-center'}>
+              <button onClick={(e) => ActivateHandler(e)}>Activate</button>
+            </div>
+            <div className={'flex justify-center'}>
+              <button onClick={(e) => RejectHandler(e)}>Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

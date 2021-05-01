@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, InputGroup, Button, Form, Modal } from 'react-bootstrap';
+import { Dialog } from '@headlessui/react';
 
 import axios from '../utils/axios';
 
@@ -48,55 +48,40 @@ export default function ActivateVoucher() {
   }
 
   return (
-    <>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Info</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>{message}</h4>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      <Col>
-        <Col className={'d-flex justify-content-center'}>
-          <h1 className={'intro-text font-weight-bold pt-5'}>Enter your Voucher ID to activate your voucher.</h1>
-        </Col>
-        <br />
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row>
-            <Col />
-            <Col className='col-6'>
-              <label>Voucher ID</label>
-              <InputGroup size='lg'>
-                <Form.Control
-                  required
-                  type={'text'}
-                  aria-label='Large'
-                  aria-describedby='inputGroup-sizing-sm'
-                  placeholder={'Voucher ID'}
-                  onChange={(e) => setVoucherId(e.target.value)}
-                />
-              </InputGroup>
-            </Col>
-            <Col />
-          </Row>
-          <br />
-          <Row>
-            <Col />
-            <Col className='col-6 d-flex flex-row-reverse'>
-              <Button type='submit' variant='primary' size='lg' style={{ backgroundColor: '#046240', border: 'none' }}>
+    <div>
+      <div>
+        <div className='flex justify-center'>
+          <h1 className='font-semibold text-2xl pt-20'>Enter your Voucher ID to activate your voucher.</h1>
+        </div>
+        <form>
+          <div className='flex justify-center'>
+            <div className='flex flex-col space-y-2'>
+              <label className='font-semibold'>Voucher ID</label>
+              <input
+                className='rounded-md border border-green-800 focus:border-green-900 w-96 p-2 text-black'
+                required
+                type='text'
+                placeholder='Voucher ID'
+                onChange={(e) => setVoucherId(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div>
+            <div className='flex justify-center'>
+              <button
+                className='rounded-md bg-green-700 text-white p-2 hover:bg-green-600'
+                type='submit'
+                onClick={() => {
+                  setShow(true);
+                }}
+              >
                 Activate
-              </Button>
-            </Col>
-            <Col />
-          </Row>
-        </Form>
-      </Col>
-    </>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
