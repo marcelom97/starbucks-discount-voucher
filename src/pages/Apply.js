@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MessageModal from '../components/MessageModal';
 import axios from '../utils/axios';
 
 export default function Apply() {
@@ -17,7 +18,6 @@ export default function Apply() {
   const [show, setShow] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   async function handleSubmit(event) {
@@ -68,29 +68,22 @@ export default function Apply() {
 
   return (
     <div className='flex justify-center'>
-      {/* <Modal show={show} onHide={handleClose} size={'lg'}>
-        <Modal.Header closeButton>
-          <Modal.Title>Info</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>
-            {typeof message === 'object'
-              ? message.map((el) => {
-                  return <p>{el}</p>;
-                })
-              : message}
-          </h4>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
+      <MessageModal
+        show={show}
+        setShow={setShow}
+        title={'Info'}
+        message={
+          typeof message === 'object'
+            ? message.map((el) => {
+                return <p>{el}</p>;
+              })
+            : message
+        }
+      />
       <div className='flex flex-col'>
-        <div className='flex flex-col align-center text-center pt-5'>
-          <h1 className='font-semibold'>Unemployment Discount Application</h1>
-          <p>
+        <div className='flex flex-col align-center text-center'>
+          <h1 className='font-semibold text-3xl pt-5'>Unemployment Discount Application</h1>
+          <p className='mt-5'>
             Υποψήφιοι δικαιούχοι ενός κουπονιού είναι άτομα που έχουν γεννηθεί μετά την 31η /12/1984 (κριτήριο ηλικίας)
             και έχουν ενεργή εγγραφή στο μητρώο πελατών της εταιρείας κατά την υποβολή της αίτησης. Κάθε κουπόνι
             αντιστοιχεί σε μία οικονομική αξία και ο δικαιούχος της μπορεί να την εξαργυρώσει σε καταστήματα της

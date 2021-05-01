@@ -1,7 +1,7 @@
 import React from 'react';
-import { Dialog } from '@headlessui/react';
 
 import axios from '../utils/axios';
+import MessageModal from '../components/MessageModal';
 
 export default function ActivateVoucher() {
   const [voucherId, setVoucherId] = React.useState('');
@@ -10,7 +10,6 @@ export default function ActivateVoucher() {
   const [show, setShow] = React.useState(false);
   const [message, setMessage] = React.useState('');
 
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   async function handleSubmit(event) {
@@ -49,11 +48,12 @@ export default function ActivateVoucher() {
 
   return (
     <div>
+      <MessageModal show={show} setShow={setShow} title={'Successful activation'} message={'Hello its me'} />
       <div>
         <div className='flex justify-center'>
-          <h1 className='font-semibold text-2xl pt-20'>Enter your Voucher ID to activate your voucher.</h1>
+          <h1 className='font-semibold text-3xl pt-5'>Enter your Voucher ID to activate your voucher.</h1>
         </div>
-        <form>
+        <form className='space-y-5 pt-20'>
           <div className='flex justify-center'>
             <div className='flex flex-col space-y-2'>
               <label className='font-semibold'>Voucher ID</label>
@@ -66,15 +66,12 @@ export default function ActivateVoucher() {
               />
             </div>
           </div>
-
           <div>
             <div className='flex justify-center'>
               <button
                 className='rounded-md bg-green-700 text-white p-2 hover:bg-green-600'
                 type='submit'
-                onClick={() => {
-                  setShow(true);
-                }}
+                onClick={() => setShow(true)}
               >
                 Activate
               </button>

@@ -3,6 +3,7 @@ import { AuthContext } from '../context';
 import { useHistory } from 'react-router-dom';
 
 import axios from '../utils/axios';
+import MessageModal from '../components/MessageModal';
 
 export default function AdminPanel() {
   const authContext = React.useContext(AuthContext);
@@ -11,7 +12,6 @@ export default function AdminPanel() {
   const [show, setShow] = React.useState(false);
   const [message, setMessage] = React.useState('');
 
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   async function ActivateHandler(event) {
@@ -60,20 +60,7 @@ export default function AdminPanel() {
 
   return (
     <>
-      {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Info</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>{message}</h4>
-        </Modal.Body>
-        <Modal.Footer>
-          <button variant='danger' onClick={handleClose}>
-            Close
-          </button>
-        </Modal.Footer>
-      </Modal> */}
-
+      <MessageModal show={show} setShow={setShow} title={'Info'} message={message} />
       <div className={'flex justify-center'}>
         <div>
           <div>
